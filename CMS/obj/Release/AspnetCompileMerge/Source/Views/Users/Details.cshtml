@@ -1,0 +1,35 @@
+﻿@model CMS.Models.User
+
+@{
+    ViewBag.Title = "Account";
+}
+
+<h1>Showcase
+    @if ((string)Session["Username"] == Model.Username)
+    {
+        @Html.ActionLink(" - Edit Profile", "Edit", new { id = Model.Id });
+    }
+</h1>
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <h2>@Model.Username</h2>
+        <p><strong>@Model.FirstName @Model.LastName</strong></p>
+        <p>@Model.About</p>
+    </div><!--/col-->
+    <div class="col-xs-12 col-sm-6">
+        <img src="@Model.Avatar" alt="" class="center-block img-circle img-responsive pull-right" width="250">
+    </div><!--/col-->
+</div><!--/row-->
+<div class="row">
+    <div class="col-xs-12">
+        <h2>
+            Projects
+            @if ((string)Session["Username"] == Model.Username)
+            {
+                @Html.ActionLink(" - Add New", "Create", "Projects");
+            }
+        </h2>
+        @Html.Action("UserProjectList", "Projects")
+    </div>
+</div>
+

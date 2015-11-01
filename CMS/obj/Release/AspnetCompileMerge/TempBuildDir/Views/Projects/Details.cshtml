@@ -1,0 +1,45 @@
+﻿@model CMS.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Project Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostedOn)
+        </dd>
+
+    </dl>
+</div>

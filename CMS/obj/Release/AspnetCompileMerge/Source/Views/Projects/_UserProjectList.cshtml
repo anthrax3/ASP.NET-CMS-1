@@ -1,0 +1,18 @@
+﻿@model List<CMS.Models.Account>
+@foreach (var project in Model)
+    {
+        <div class="col-xs-12 col-sm-4">
+            @if (project.Projects.ProjectImage != null)
+            {
+                <img src="@project.Projects.ProjectImage" class="img-thumbnail" alt="@project.Projects.ProjectName" />
+            }
+            <h3><strong>@project.Projects.ProjectName</strong></h3>
+            <p><small>@project.Projects.ProjectDesc</small></p>
+            @Html.ActionLink("Details", project.Projects.ProjectName, "Project", null, new { @class = "btn btn-success btn-block" })
+            @if (project.Users.Username.Equals((string)Session["Username"]))
+            {
+                @Html.ActionLink("Edit", "Edit", null, new { id = project.Projects.Id }, new { @class = "btn btn-info btn-block" })
+                @Html.ActionLink("Delete", "Delete", null, new { id = project.Projects.Id }, new { @class = "btn btn-danger btn-block" })
+            }
+        </div>
+    }
